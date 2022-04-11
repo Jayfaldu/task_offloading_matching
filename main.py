@@ -36,10 +36,19 @@ WHITE = (255, 255, 255)
 X_LIMIT = 1000
 Y_LIMIT = 1000
 
+# used for randomly distributing fog nodes on the plane
+# set seed to make it deterministic
 random.seed(0)
 
 
+'''
+Sample Inputs
+-------------
 
+3 FNs and 3 EDs
+FNs are connected in a complete graph
+Each ED is connected to a separate FN
+'''
 m = 3
 n = 3
 O = [[],[],[]]
@@ -159,7 +168,7 @@ for i in range(n):
         connections.append(Connection(len(connections), FNs[i], FNs[j]))
 
 
-def mainloop(tuples=[(2, 0, 7, 1), (0, 0, 4, 2), (1, 0, 4, 0)]):
+def mainloop(tuples):
     # tuples of (from, start_time, end_time, to)
 
     t = -1
